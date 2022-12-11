@@ -1,0 +1,8 @@
+.contact-button {
+  @apply rounded-3xl px-14 flex items-center cursor-pointer relative;
+  transition: .3s;
+  &:hover {
+    box-shadow: 5px 5px 1px black;
+    transform: translate(-5px, -5px);
+  }
+}

@@ -1,0 +1,10 @@
+.appHeader {
+  @apply app-content-wrap sticky top-0 left-0 right-0 z-20 text-white;
+  @apply py-7 mb-[-88px];
+  @apply flex items-center justify-between;
+}
+
+.navs {
+  @apply flex gap-12 items-center;
+  @apply text-lg leading-6;
+}

@@ -1,0 +1,22 @@
+.what-is-it {
+  @apply min-h-screen rounded-t-[48px] bg-white relative flex items-center py-10;
+}
+
+.what-is-it-container {
+  @apply app-content-wrap flex items-center justify-between flex-col lg:flex-row gap-6 lg:gap-0;
+}
+
+.what-is-it-description {
+  @apply flex-1 grid gap-6 lg:gap-12 grid-flow-row;
+}
+
+.what-is-it-image {
+  @apply max-h-[720px] flex-1;
+}
+
+.what-is-it-tags {
+  @apply flex gap-6 text-primary text-lg leading-normal font-medium;
+  > span {
+    @apply rounded-xl bg-primary/10 px-4 py-3;
+  }
+}

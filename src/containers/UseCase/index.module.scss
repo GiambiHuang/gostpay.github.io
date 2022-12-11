@@ -1,0 +1,12 @@
+.use-case-container {
+  @apply min-h-screen py-36;
+  @apply app-content-wrap;
+}
+
+.use-case-list {
+  @apply grid grid-cols-[1fr_1fr] gap-x-10 xl:gap-x-0 xl:grid-cols-[300px_300px_300px] justify-between gap-y-[60px] leading-6 text-black/80;
+}
+
+.use-case-item {
+  @apply flex flex-col gap-6;
+}

@@ -1,0 +1,15 @@
+.main {
+  @apply absolute;
+  @apply top-0;
+  @apply left-0;
+  @apply right-0;
+  @apply bottom-0;
+}
+
+.canvas {
+  height: calc(100% + 48px);
+  --gradient-color-1: #E1DEED;
+  --gradient-color-2: #C9E1E4;
+  --gradient-color-3: #0569EB;
+  --gradient-color-4: #99E6DF;
+}

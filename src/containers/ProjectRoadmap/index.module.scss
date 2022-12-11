@@ -1,0 +1,7 @@
+.roadmap-item {
+  @apply px-10 pt-[52px] pb-[42px] rounded-3xl bg-primary/5 text-black text-left overflow-hidden relative;
+  &::after {
+    content: attr(data-after);
+    @apply absolute italic font-black text-[11.25rem] leading-none text-black opacity-[2%] right-0 bottom-[-28px];
+  }
+}

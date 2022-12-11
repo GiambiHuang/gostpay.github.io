@@ -1,0 +1,32 @@
+
+.tokenomics-info {
+  @apply grid grid-cols-[minmax(auto,_200px)_1fr_minmax(auto,_200px)] gap-4;
+  @apply lg:grid-cols-[minmax(auto,_260px)_1fr_minmax(auto,_260px)] md:gap-x-[24px] md:gap-y-4;
+  @apply xl:grid-cols-[minmax(auto,_340px)_1fr_minmax(auto,_340px)] xl:gap-x-[35px] xl:gap-y-6;
+  grid-template-rows: repeat(3, minmax(175px, auto));
+}
+
+.tokenomics-center-info {
+  @apply col-start-2 col-end-3 row-span-full bg-primary/5 p-8 text-black rounded-3xl border-[0.5px] py-[40px] px-[36px] flex flex-col relative overflow-hidden;
+  @apply xl:p-10;
+  &::after,
+  &::before {
+    content: '';
+    @apply absolute;
+    width: 102px;
+    height: 102px;
+    filter: blur(50px);
+  }
+  &::after {
+    bottom: 0;
+    right: 0;
+    transform: translate(25%, 25%);
+    background-color: #0E51FF;
+  }
+  &::before {
+    top: 0;
+    left: 0;
+    transform: translate(-25%, -25%);
+    background-color: #FF0E56;
+  }
+}
