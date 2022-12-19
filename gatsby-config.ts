@@ -1,7 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
-  pathPrefix: '/gostpay.github.io/',
+  // pathPrefix: '/gostpay.github.io/',
   siteMetadata: {
     title: `Gostpay`,
     siteUrl: `https://www.yourdomain.tld`
@@ -34,6 +34,5 @@ const config: GatsbyConfig = {
     }
   ]
 };
-
 
 export default config;

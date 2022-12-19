@@ -14,18 +14,32 @@ const expenditureList = [
   { value: 10, desc: 'Bug bounty' },
 ];
 
-const cardVariants: Variants = {
+const rightSideVariants: Variants = {
   offscreen: {
-    y: 20,
-    opacity: 0.2,
+    x: 50,
+    opacity: 0.1,
   },
   onscreen: {
-    y: 0,
+    x: 0,
     opacity: 1,
     transition: {
       type: "spring",
-      bounce: 0.4,
-      duration: 0.8
+      duration: 0.5,
+    }
+  }
+};
+
+const leftSideVariants: Variants = {
+  offscreen: {
+    x: -50,
+    opacity: 0.1,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 0.5,
     }
   }
 };
@@ -33,23 +47,26 @@ const cardVariants: Variants = {
 const InvestmentRequired: React.FC = () => {
   const { ref, inView } = useInView({
     threshold: 0,
+    triggerOnce: true
   });
 
   return (
-    <div ref={ref} className={modules.investmentContainer}>
-      <motion.div
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.6 }}
-        className="app-content-wrap"
-      >
-        <motion.div className={modules.investmentCard} variants={cardVariants}>
+    <div className={modules.investmentContainer}>
+      <div className="app-content-wrap">
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.5 }}
+          className={modules.investmentCard}
+        >
           <div className={modules.investmentRequired}>
-            <div className="text-2xl leading-8 mb-[106px]">Angel Investment Required</div>
-            <div className="text-8xl leading-tight font-semibold">5-10 Million USD</div>
+            <motion.div variants={leftSideVariants}>
+              <div className="text-2xl leading-8 mb-[106px]">Angel Investment Required</div>
+              <div className="text-8xl leading-tight font-semibold">5-10 Million USD</div>
+            </motion.div>
             <LogoBgSVG className="absolute bottom-0 right-0" />
           </div>
-          <div className={modules.investmentExpenditure}>
+          <motion.div ref={ref} className={modules.investmentExpenditure} variants={rightSideVariants}>
             <div className="grid grid-cols-[minmax(auto,_180px)_minmax(auto,_180px)] gap-[60px] z-10">
               <div className="text-2xl leading-8 col-span-full">Expenditure</div>
               {expenditureList.map(item => (
@@ -59,6 +76,7 @@ const InvestmentRequired: React.FC = () => {
                       start={0}
                       end={item.value}
                       duration={1}
+                      delay={1}
                       suffix="%"
                       redraw={inView}
                     />
@@ -67,9 +85,9 @@ const InvestmentRequired: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   )
 }

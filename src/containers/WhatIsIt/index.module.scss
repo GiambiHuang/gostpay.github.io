@@ -1,5 +1,5 @@
 .what-is-it {
-  @apply min-h-screen rounded-t-[48px] bg-white relative flex items-center py-10;
+  @apply min-h-screen rounded-t-[48px] bg-white relative flex items-center pt-10 pb-32;
 }
 
 .what-is-it-container {
@@ -11,7 +11,8 @@
 }
 
 .what-is-it-image {
-  @apply max-h-[720px] flex-1;
+  @apply max-w-full flex-1;
+  @apply md:max-h-[720px];
 }
 
 .what-is-it-tags {

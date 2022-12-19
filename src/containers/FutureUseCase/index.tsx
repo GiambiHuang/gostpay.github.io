@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from "framer-motion";
 
+import { cardContainerVariants, cardVariants, titleVariants } from '../../config/variants';
 import Divider from "../../components/Divider";
 import FutureCase1Svg from "../../images/future-case_1.svg";
 import FutureCase2Svg from "../../images/future-case_2.svg";
@@ -27,26 +29,40 @@ const futureCases = [
 const FutureUseCase: React.FC = () => {
   return (
     <div className={modules.useCaseContainer}>
-      <div id="future-use-case" className="text-[40px] font-semibold leading-[52px]">
-        Future Use Case
-        <br />
-        For Businesses / Companies To-B
-      </div>
-      <div className="text-lg leading-normal mt-12 max-w-[830px]">
-        A privacy payroll system. Allows companies to pay employees using privacy obfuscated payments, 
-        the same principle can be applied to employee rewards, either in tokens or NFTs, within this framework, 
-        there are other ways to implement this system:
-      </div>
+      <motion.div
+        id="future-use-case"
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true }}
+        variants={titleVariants}
+      >
+        <div className="text-[40px] font-semibold leading-[52px]">
+          Future Use Case
+          <br />
+          For Businesses / Companies To-B
+        </div>
+        <div className="text-lg leading-normal mt-12 max-w-[830px]">
+          A privacy payroll system. Allows companies to pay employees using privacy obfuscated payments, 
+          the same principle can be applied to employee rewards, either in tokens or NFTs, within this framework, 
+          there are other ways to implement this system:
+        </div>
+      </motion.div>
       <Divider />
-      <div className={modules.useCaseList}>
+      <motion.div
+        className={modules.useCaseList}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true }}
+        variants={cardContainerVariants}
+      >
         {futureCases.map(c => (
-          <div key={c.title} className={modules.useCaseItem}>
+          <motion.div key={c.title} className={modules.useCaseItem} variants={cardVariants}>
             {c.icon}
             <div className="leading-7 font-semibold whitespace-nowrap text-[22px]">{c.title}</div>
             <div>{c.description}</div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   )
 }

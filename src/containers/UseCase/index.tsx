@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, Variants } from "framer-motion";
 
+import { cardContainerVariants, cardVariants, titleVariants } from '../../config/variants';
 import Divider from "../../components/Divider";
 import UserCase1Svg from "../../images/use-case_1.svg";
 import UserCase2Svg from "../../images/use-case_2.svg";
@@ -43,41 +44,26 @@ const cases = [
   }
 ];
 
-const caseVariants: Variants = {
-  offscreen: {
-    x: 10,
-    opacity: 0,
-  },
-  onscreen: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8
-    }
-  }
-};
-
 const UseCase: React.FC = () => {
   return (
     <div className={modules.useCaseContainer}>
-      <div className="text-[40px] font-semibold leading-[52px]">
+      <motion.div
+        className="text-[40px] font-semibold leading-[52px]"
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true }}
+        variants={titleVariants}
+      >
         Use Case
         <br />
         For Private Users (Customers) To-C
-      </div>
+      </motion.div>
       <Divider />
-      <motion.div
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.25 }}
-        className={modules.useCaseList}
-      >
+      <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} className={modules.useCaseList} variants={cardContainerVariants}>
         {cases.map(c => (
-          <motion.div key={c.title} className={modules.useCaseItem} variants={caseVariants}>
+          <motion.div key={c.title} className={modules.useCaseItem} variants={cardVariants}>
             {c.icon}
-            <div className="text-2xl leading-7 font-semibold whitespace-nowrap">{c.title}</div>
+            <div className="text-2xl leading-7 font-semibold md:whitespace-nowrap">{c.title}</div>
             <div>{c.description}</div>
           </motion.div>
         ))}

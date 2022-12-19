@@ -1,10 +1,9 @@
 import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
+import { motion } from "framer-motion";
 
-import MovingGradientBackground from "../components/MovingGradientBackground";
 import AppHeader from "../components/AppHeader";
-
-import * as modules from "./index.module.scss";
+import AppFooter from "../components/AppFooter";
 import UseCase from "../containers/UseCase";
 import FutureUseCase from "../containers/FutureUseCase";
 import InvestmentRequired from "../containers/InvestmentExcept";
@@ -12,28 +11,26 @@ import ProjectRoadmap from "../containers/ProjectRoadmap";
 import Tokenomics from "../containers/Tokenomics";
 import ExpectedMarketCap from "../containers/ExpectedMarketCap";
 import ContactUs from "../containers/ContactUs";
-import AppFooter from "../components/AppFooter";
 import WhatIsIt from "../containers/WhatIsIt";
-
+import MainSection from "../containers/MainSection";
+import MovingGradientBackground from "../components/MovingGradientBackground";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <main>
+      <MovingGradientBackground className="fixed top-0 bottom-[-48px]" />
       <AppHeader />
-      <div className={modules.mainSection}>
-        <MovingGradientBackground />
-        <div className={modules.subSlogan}>
-          GOST PROTOCOL SYSTEM
-        </div>
-        <div className={modules.slogan}>
-          <div>Pay and transfer privately</div>
-          <div>safely and securely</div>
-        </div>
-        <div className={modules.comment}>
-          <div>A transaction layer that obfuscates the transaction data so it can</div>
-          <div>be veiled on-chain, thereby applying privacy to the transaction.</div>
-        </div>
-      </div>
+      <motion.div
+        initial={{ filter: 'blur(150px)' }}
+        animate={{ filter: 'blur(0px)' }}
+        transition={{
+          duration: 1,
+          delay: 0.2,
+          ease: [0, 0.71, 0.2, 1.01]
+        }}
+      >
+        <MainSection />
+      </motion.div>
       <div className="z-30 relative">
         <WhatIsIt />
       </div>

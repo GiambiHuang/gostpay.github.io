@@ -3,8 +3,3 @@ export const mainSection: string;
 export const slogan: string;
 export const subSlogan: string;
 export const comment: string;
-export const whatIsIt: string;
-export const whatIsItContainer: string;
-export const whatIsItDescription: string;
-export const whatIsItImage: string;
-export const whatIsItTags: string;
